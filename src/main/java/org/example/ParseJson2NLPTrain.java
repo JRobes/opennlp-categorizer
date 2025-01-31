@@ -40,6 +40,8 @@ public class ParseJson2NLPTrain {
         // Eliminar palabras que comienzan con @
         text = text.replaceAll("@\\w+", "");
         text = text.replaceAll("#\\w+", "");
+        text = text.replaceAll(":\\-\\(", ""); // eliminar :-(
+        text = text.replaceAll("\\(+", "");
 
         // Eliminar el carácter @ si aparece solo
         text = text.replaceAll("\\s@\\s", " "); // Espacios alrededor de @
