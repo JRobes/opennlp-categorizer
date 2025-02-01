@@ -10,6 +10,7 @@ import opennlp.tools.util.InputStreamFactory;
 import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.PlainTextByLineStream;
 import opennlp.tools.util.TrainingParameters;
+import opennlp.tools.util.model.ModelType;
 
 public class OpenNLPCategorizer
 {
@@ -18,7 +19,7 @@ public class OpenNLPCategorizer
     public static void main(String[] args) {
         OpenNLPCategorizer twitterCategorizer = new OpenNLPCategorizer();
         twitterCategorizer.trainModel();
-        twitterCategorizer.classifyNewTweet("what a shit of day is today son sad");
+        twitterCategorizer.classifyNewTweet("I love this film");
     }
 
     public void trainModel() {
@@ -35,8 +36,11 @@ public class OpenNLPCategorizer
             // Specifies the minimum number of times a feature must be seen
             DoccatFactory doccatFactory = new DoccatFactory();
             TrainingParameters params = new TrainingParameters();
-            params.put(TrainingParameters.ITERATIONS_PARAM, 4000);
-            params.put(TrainingParameters.CUTOFF_PARAM, 10);
+            //params.put(TrainingParameters.ITERATIONS_PARAM, 4000);
+            //params.put(TrainingParameters.CUTOFF_PARAM, 10);
+            params.put(TrainingParameters.ALGORITHM_PARAM, ModelType.MAXENT.toString());
+            params.put(TrainingParameters.ITERATIONS_PARAM, "4000");
+            params.put(TrainingParameters.CUTOFF_PARAM, "1");
             int cutoff = 2;
             int trainingIterations = 30;
             model = DocumentCategorizerME.train("en", sampleStream, params, doccatFactory);
