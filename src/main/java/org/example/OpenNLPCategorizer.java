@@ -18,13 +18,13 @@ public class OpenNLPCategorizer
     public static void main(String[] args) {
         OpenNLPCategorizer twitterCategorizer = new OpenNLPCategorizer();
         twitterCategorizer.trainModel();
-        twitterCategorizer.classifyNewTweet("Ugly hat");
+        twitterCategorizer.classifyNewTweet("what a shit of day is today son sad");
     }
 
     public void trainModel() {
         InputStream dataIn = null;
         try {
-            dataIn = new FileInputStream("input/tweets.txt");
+            dataIn = new FileInputStream("input/tweets_output.txt");
             InputStreamFactory isf = new InputStreamFactory() {
                 public InputStream createInputStream() throws IOException {
                     return new FileInputStream(new File("input/tweets.txt"));
@@ -35,11 +35,12 @@ public class OpenNLPCategorizer
             // Specifies the minimum number of times a feature must be seen
             DoccatFactory doccatFactory = new DoccatFactory();
             TrainingParameters params = new TrainingParameters();
-            params.put(TrainingParameters.ITERATIONS_PARAM, 100);
-            params.put(TrainingParameters.CUTOFF_PARAM, 2);
+            params.put(TrainingParameters.ITERATIONS_PARAM, 4000);
+            params.put(TrainingParameters.CUTOFF_PARAM, 10);
             int cutoff = 2;
             int trainingIterations = 30;
             model = DocumentCategorizerME.train("en", sampleStream, params, doccatFactory);
+            System.out.println("End of train");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -57,7 +58,7 @@ public class OpenNLPCategorizer
         DocumentCategorizerME myCategorizer = new DocumentCategorizerME(model);
         double[] outcomes = myCategorizer.categorize(new String[]{tweet});
         String category = myCategorizer.getBestCategory(outcomes);
-        System.out.println("································· " + outcomes.length + "\t" +outcomes[1]);
+        System.out.println("····························" + outcomes.length + "\t" +outcomes[1]);
         if (category.equalsIgnoreCase("1")) {
             System.out.println("The tweet is positive :) ");
         } else {
