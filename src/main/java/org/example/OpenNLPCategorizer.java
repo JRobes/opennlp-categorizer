@@ -12,14 +12,54 @@ import opennlp.tools.util.PlainTextByLineStream;
 import opennlp.tools.util.TrainingParameters;
 import opennlp.tools.util.model.ModelType;
 
+import edu.stanford.nlp.pipeline.*;
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
+import edu.stanford.nlp.util.CoreMap;
+
+import java.util.Properties;
+
 public class OpenNLPCategorizer
 {
     DoccatModel model;
 
     public static void main(String[] args) {
-        OpenNLPCategorizer twitterCategorizer = new OpenNLPCategorizer();
-        twitterCategorizer.trainModel();
-        twitterCategorizer.classifyNewTweet("I love this film");
+
+        // Configurar las propiedades del pipeline
+        Properties props = new Properties();
+        props.setProperty("annotators", "tokenize, parse, sentiment");
+        props.setProperty("coref.algorithm", "neural");
+
+        // Crear el pipeline
+        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+
+        // Texto de ejemplo
+        String text = "Banco Sabadell and three other European titles with a clear graphic appeal";
+
+        // Crear un objeto Annotation con el texto
+        Annotation annotation = new Annotation(text);
+
+        // Anotar el texto
+        pipeline.annotate(annotation);
+
+        // Obtener las frases y sus sentimientos
+        for (CoreMap sentence : annotation.get(CoreAnnotations.SentencesAnnotation.class)) {
+            // Obtener el sentimiento de la frase
+            String sentiment = sentence.get(SentimentCoreAnnotations.SentimentClass.class);
+            System.out.println("Sentence: " + sentence);
+            System.out.println("Sentiment: " + sentiment);
+            System.out.println("----------");
+        }
+
+
+
+
+
+        //OpenNLPCategorizer twitterCategorizer = new OpenNLPCategorizer();
+        //twitterCategorizer.trainModel();
+        //twitterCategorizer.classifyNewTweet("I love this film");
+
+
     }
 
     public void trainModel() {
