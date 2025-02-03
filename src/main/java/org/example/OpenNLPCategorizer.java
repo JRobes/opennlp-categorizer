@@ -2,6 +2,7 @@ package org.example;
 
 import java.io.*;
 
+import edu.stanford.nlp.ling.CoreLabel;
 import opennlp.tools.doccat.DoccatFactory;
 import opennlp.tools.doccat.DoccatModel;
 import opennlp.tools.doccat.DocumentCategorizerME;
@@ -27,14 +28,16 @@ public class OpenNLPCategorizer
 
         // Configurar las propiedades del pipeline
         Properties props = new Properties();
-        props.setProperty("annotators", "tokenize, parse, sentiment");
+        //props.setProperty("annotators", "tokenize, parse, sentiment");
+        props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, sentiment"); // Incluir 'ner'
         props.setProperty("coref.algorithm", "neural");
+        props.setProperty("tokenize.language", "es"); // Especificar idioma español
 
         // Crear el pipeline
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
 
         // Texto de ejemplo
-        String text = "Banco Sabadell and three other European titles with a clear graphic appeal";
+        String text = "La cartera de pedidos de Sacyr alcanza los 8,000M€, con diversificación geográfica en Europa y América Latina.";
 
         // Crear un objeto Annotation con el texto
         Annotation annotation = new Annotation(text);
@@ -49,6 +52,17 @@ public class OpenNLPCategorizer
             System.out.println("Sentence: " + sentence);
             System.out.println("Sentiment: " + sentiment);
             System.out.println("----------");
+            // Recorrer los tokens (palabras) de la frase
+            for (CoreLabel token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
+                // Obtener la palabra y su etiqueta de entidad nombrada
+                String word = token.get(CoreAnnotations.TextAnnotation.class);
+                String ner = token.get(CoreAnnotations.NamedEntityTagAnnotation.class);
+                System.out.println("Entidad: " + word + " | Tipo: " + ner);
+                // Filtrar solo las entidades de tipo ORGANIZATION (organización)
+                if ("ORGANIZATION".equals(ner)) {
+                    System.out.println("Entidad: " + word + " | Tipo: " + ner);
+                }
+            }
         }
 
 

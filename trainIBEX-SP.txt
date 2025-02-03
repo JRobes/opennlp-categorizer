@@ -1,0 +1,64 @@
+30-01-2025	positivo	Estamos buscando oportunidades en Industriales, IA y value: CSX, Microsoft o Nestlé serán ganadores
+31-01-2025	positivo	Sacyr y la petrolera Repsol, nuevas apuestas de Cobas (Paramés) para su Cartera Ibérica
+30-01-2025	positivo	Puig registra en 2024 ventas netas de 4.790 millones de euros, un 10,9% más
+31-01-2025	positivo	Caixabank busca los 6 euros por primera vez en la historia: ¿Hasta dónde puede llegar?
+		negativo	Repsol muestra debilidad técnica: rompe soporte clave en 14€. Volumen en aumento sugiere más ventas. Potencial bajista.
+		negativo	Resultados de Repsol por debajo de expectativas. Reducción de dividendos y aumento de deuda podrían presionar el precio a la baja.
+		negativo	Caída en precios del petróleo afecta a Repsol. Perspectivas negativas para el sector energético refuerzan tendencia bajista.
+		negativo	Repsol en zona de sobreventa, pero sin señales de recuperación. RSI en mínimos históricos sugiere continuidad del movimiento bajista.
+		negativo	Análisis técnico de Repsol indica formación de 'cabeza y hombros'. Objetivo bajista en 12€ si se confirma el patrón.
+31-01-2025	positivo	Tres motivos por los que el precio del Bitcoin va a seguir subiendo.
+02-02-2025	neutroll	¿La recuperación semanal de Bitcoin, Ethereum y Ripple podría ser efímera?
+01-02-2025	positivo	Banco Santander El valor tiene un gráfico mensual de enero que ha sido muy bueno: bandera de continuación de tendencia frente al mástil mensual.
+31-01-2025	positivo	China revoluciona el mercado: el oro y el Bitcoin, al alza
+30-01-2025	negativo	Deutsche Bank ganó 2.698 millones de euros en 2024, un 36% menos que el año anterior.
+25-01-2025	neutroll	Bancos y tecnológicas, aunque están para invertir, se salen del ranking de los más baratos 
+		neutroll	Sacyr mantiene estabilidad en precios, con soporte en 2.50€ y resistencia en 2.80€. Volumen de negociación dentro de la media histórica.
+		neutroll	La deuda neta de Sacyr se mantiene estable en 4,500M€. Ratios de solvencia dentro de los parámetros esperados para el sector.
+		neutroll	Sacyr continúa ejecutando proyectos clave en infraestructuras, con avances según lo planeado en contratos internacionales.
+		neutroll	El RSI de Sacyr se sitúa en 50, indicando equilibrio entre compradores y vendedores. Sin señales claras de sobrecompra o sobreventa.
+		neutroll	Sacyr reporta ingresos alineados con estimaciones del mercado. Margen EBITDA se mantiene estable en el 15%.
+		neutroll	La cartera de pedidos de Sacyr alcanza los 8,000M€, con diversificación geográfica en Europa y América Latina.
+		neutroll	Sacyr mantiene su política de dividendos, con un rendimiento del 4% anual. Sin cambios significativos en su estrategia de remuneración.
+		neutroll	El precio de Sacyr se mueve en rango lateral desde hace 3 meses, entre 2.40€ y 2.70€. Sin rupturas técnicas relevantes.
+		neutroll	Sacyr reduce costes operativos en un 3% anual, compensando presiones inflacionarias en materias primas y energía.
+		neutroll	La valoración de Sacyr por PER se sitúa en 12x, en línea con el promedio del sector de construcción e infraestructuras.
+		positivo	Santander anuncia un aumento del 10% en sus beneficios trimestrales, superando expectativas.
+		negativo	Repsol enfrenta multas por incumplimiento de normativas medioambientales en sus refinerías.
+		positivo	Telefónica lanza una nueva línea de productos 5G que revolucionará el mercado de telecomunicaciones.
+		negativo	Iberdrola sufre una caída en sus acciones debido a la incertidumbre regulatoria en el sector energético.
+		positivo	Inditex abre 50 nuevas tiendas en Asia, expandiendo su presencia global.
+		negativo	BBVA investigado por presuntas irregularidades en el lavado de dinero en sus sucursales.
+		positivo	Endesa firma un acuerdo para suministrar energía renovable a grandes empresas europeas.
+		negativo	ACS reduce su previsión de crecimiento anual debido a la desaceleración económica global.
+		positivo	Mapfre lanza una nueva plataforma digital para mejorar la experiencia del cliente.
+		negativo	Aena reporta una disminución del 15% en el tráfico de pasajeros debido a restricciones de viaje.
+		positivo	CaixaBank anuncia una alianza estratégica con una fintech líder para impulsar la banca digital.
+		negativo	Ferrovial enfrenta retrasos en la construcción de un proyecto clave en Estados Unidos.
+		positivo	Amadeus implementa con éxito un nuevo sistema de reservas que aumenta la eficiencia en aerolíneas.
+		negativo	Naturgy sufre una caída en sus ingresos debido a la disminución de la demanda de gas.
+		positivo	Siemens Gamesa obtiene un contrato millonario para suministrar turbinas eólicas en Europa.
+		negativo	Cellnex enfrenta críticas por la calidad de su servicio en zonas rurales.
+		positivo	Acciona construirá una nueva planta solar en Chile que generará energía para 100,000 hogares.
+		negativo	Enagás reporta una caída en los ingresos debido a la reducción de la demanda de gas natural.
+		positivo	Rovi Pharmaceuticals anuncia un avance significativo en el desarrollo de una nueva vacuna.
+		negativo	Viscofan enfrenta problemas de suministro que afectan su producción global.
+		positivo	Grifols lanza una nueva línea de productos médicos que promete mejorar los tratamientos actuales.
+		negativo	ArcelorMittal reduce su producción debido a la caída de la demanda de acero en Europa.
+		positivo	Acerinox anuncia una inversión millonaria en tecnología para reducir emisiones.
+		negativo	Bankinter enfrenta una demanda colectiva por prácticas crediticias cuestionables.
+		positivo	Red Eléctrica de España implementa con éxito un nuevo sistema de gestión de energía renovable.
+		negativo	PharmaMar sufre una caída en sus acciones debido a la falta de aprobación de un nuevo fármaco.
+		positivo	Sacyr firma un contrato para construir una autopista en América Latina.
+		negativo	Meliá Hotels International reporta una disminución en las reservas debido a la pandemia.
+		positivo	Fluidra lanza una nueva línea de productos para piscinas que promete mayor eficiencia energética.
+		negativo	Colonial enfrenta una caída en el valor de sus propiedades debido a la crisis inmobiliaria.
+		positivo	CIE Automotive anuncia una expansión en el mercado asiático con nuevas fábricas.
+		negativo	Ebro Foods sufre una caída en las ventas debido a la competencia en el mercado de arroz.
+		positivo	Almirall lanza un nuevo tratamiento dermatológico que recibe excelentes críticas.
+		negativo	DIA Supermercados enfrenta una caída en las ventas debido a la competencia de cadenas online.
+		positivo	BME (Bolsas y Mercados Españoles) anuncia un récord en el volumen de operaciones este trimestre.
+		negativo	Prosegur enfrenta una caída en sus acciones debido a la incertidumbre en el sector de seguridad.
+		positivo	Indra implementa con éxito un nuevo sistema de inteligencia artificial para mejorar sus servicios.
+		negativo	Unicaja Banco reporta una disminución en los depósitos debido a la competencia de bancos digitales.
+		positivo	Merlin Properties anuncia una alianza estratégica para desarrollar proyectos inmobiliarios sostenibles.
