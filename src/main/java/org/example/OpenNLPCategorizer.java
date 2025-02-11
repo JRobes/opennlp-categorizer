@@ -3,14 +3,8 @@ package org.example;
 import java.io.*;
 
 import edu.stanford.nlp.ling.CoreLabel;
-import opennlp.tools.doccat.DoccatFactory;
-import opennlp.tools.doccat.DoccatModel;
-import opennlp.tools.doccat.DocumentCategorizerME;
-import opennlp.tools.doccat.DocumentSampleStream;
-import opennlp.tools.util.InputStreamFactory;
-import opennlp.tools.util.ObjectStream;
-import opennlp.tools.util.PlainTextByLineStream;
-import opennlp.tools.util.TrainingParameters;
+import opennlp.tools.doccat.*;
+import opennlp.tools.util.*;
 import opennlp.tools.util.model.ModelType;
 
 import edu.stanford.nlp.pipeline.*;
@@ -18,64 +12,50 @@ import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 public class OpenNLPCategorizer
 {
-    DoccatModel model;
+    //DoccatModel model;
 
     public static void main(String[] args) {
 
-        // Configurar las propiedades del pipeline
-        Properties props = new Properties();
-        //props.setProperty("annotators", "tokenize, parse, sentiment");
-        props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, sentiment"); // Incluir 'ner'
-        props.setProperty("coref.algorithm", "neural");
-        props.setProperty("tokenize.language", "es"); // Especificar idioma español
+        try {
+            // Ruta al archivo de entrenamiento
+            String rutaArchivoEntrenamiento = "C:\\Users\\jrobes\\Desktop\\AphaVantage\\OpenNLPTrain.txt";
+            System.out.println("WWWWWWWWW: " + rutaArchivoEntrenamiento);
+            // Crear un InputStreamFactory para leer el archivo
+            InputStreamFactory inputStreamFactory = new MarkableFileInputStreamFactory(new File(rutaArchivoEntrenamiento));
 
-        // Crear el pipeline
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+            // Crear un ObjectStream para leer el archivo línea por línea
+            ObjectStream<String> lineStream = new PlainTextByLineStream(inputStreamFactory, StandardCharsets.UTF_8);
 
-        // Texto de ejemplo
-        String text = "La cartera de pedidos de Sacyr alcanza los 8,000M€, con diversificación geográfica en Europa y América Latina.";
+            // Crear un ObjectStream de DocumentSample a partir del ObjectStream de líneas
+            ObjectStream<DocumentSample> sampleStream = new DocumentSampleStream(lineStream);
 
-        // Crear un objeto Annotation con el texto
-        Annotation annotation = new Annotation(text);
+            // Parámetros de entrenamiento
+            TrainingParameters params = new TrainingParameters();
+            params.put(TrainingParameters.ITERATIONS_PARAM, 100); // Número de iteraciones
+            params.put(TrainingParameters.CUTOFF_PARAM, 2); // Umbral de frecuencia mínima
 
-        // Anotar el texto
-        pipeline.annotate(annotation);
+            // Entrenar el modelo
+            DoccatModel model = DocumentCategorizerME.train("en", sampleStream, params, new DoccatFactory());
 
-        // Obtener las frases y sus sentimientos
-        for (CoreMap sentence : annotation.get(CoreAnnotations.SentencesAnnotation.class)) {
-            // Obtener el sentimiento de la frase
-            String sentiment = sentence.get(SentimentCoreAnnotations.SentimentClass.class);
-            System.out.println("Sentence: " + sentence);
-            System.out.println("Sentiment: " + sentiment);
-            System.out.println("----------");
-            // Recorrer los tokens (palabras) de la frase
-            for (CoreLabel token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
-                // Obtener la palabra y su etiqueta de entidad nombrada
-                String word = token.get(CoreAnnotations.TextAnnotation.class);
-                String ner = token.get(CoreAnnotations.NamedEntityTagAnnotation.class);
-                System.out.println("Entidad: " + word + " | Tipo: " + ner);
-                // Filtrar solo las entidades de tipo ORGANIZATION (organización)
-                if ("ORGANIZATION".equals(ner)) {
-                    System.out.println("Entidad: " + word + " | Tipo: " + ner);
-                }
-            }
+            // Guardar el modelo en un archivo
+            String rutaModelo = "C:\\Users\\jrobes\\Desktop\\AphaVantage\\OpenNLP_model_trained.bin";
+            FileOutputStream modelOut = new FileOutputStream(rutaModelo);
+            model.serialize(modelOut);
+            modelOut.close();
+
+            System.out.println("Modelo entrenado y guardado en: " + rutaModelo);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
 
-
-
-
-        //OpenNLPCategorizer twitterCategorizer = new OpenNLPCategorizer();
-        //twitterCategorizer.trainModel();
-        //twitterCategorizer.classifyNewTweet("I love this film");
-
-
     }
-
+/*
     public void trainModel() {
         InputStream dataIn = null;
         try {
@@ -113,14 +93,16 @@ public class OpenNLPCategorizer
     }
 
     public void classifyNewTweet(String tweet) {
-        DocumentCategorizerME myCategorizer = new DocumentCategorizerME(model);
-        double[] outcomes = myCategorizer.categorize(new String[]{tweet});
-        String category = myCategorizer.getBestCategory(outcomes);
-        System.out.println("····························" + outcomes.length + "\t" +outcomes[1]);
+            DocumentCategorizerME myCategorizer = new DocumentCategorizerME(model);
+            double[] outcomes = myCategorizer.categorize(new String[]{tweet});
+            String category = myCategorizer.getBestCategory(outcomes);
+            System.out.println("····························" + outcomes.length + "\t" +outcomes[1]);
         if (category.equalsIgnoreCase("1")) {
             System.out.println("The tweet is positive :) ");
         } else {
             System.out.println("The tweet is negative :( ");
         }
     }
+    */
+
 }
