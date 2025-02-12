@@ -14,7 +14,7 @@ public class TestModel {
         DoccatModel model = new DoccatModel(modelFile);
         DocumentCategorizerME categorizer = new DocumentCategorizerME(model);
 
-        String testText = "celebrating the first real word bitcoin transaction, cointelegraph launched a brand new, limited-time \"bitcoin pizza collection.\" join in on the tradition and grab some of the coolest crypto merch. free shipping worldwide on orders over $100.";
+        String testText = "the crypto market lost more than half its value in the latest period.";
         SimpleTokenizer tokenizer = SimpleTokenizer.INSTANCE;
         String[] tokens = tokenizer.tokenize(testText);
         double[] outcomes = categorizer.categorize(tokens);
