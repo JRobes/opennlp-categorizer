@@ -14,7 +14,7 @@ public class TestModel {
         DoccatModel model = new DoccatModel(modelFile);
         DocumentCategorizerME categorizer = new DocumentCategorizerME(model);
 
-        String testText = "the crypto market lost more than half its value in the latest period.";
+        String testText = "On Monday, Apple Inc. AAPL rolled out iOS 18.3.1 and iPadOS 18.3.1 updates. What Happened: The updates address a vulnerability that could disable USB Restricted Mode on locked devices, said Apple. The flaw, which required physical access to the device, was reportedly exploited in sophisticated";
         SimpleTokenizer tokenizer = SimpleTokenizer.INSTANCE;
         String[] tokens = tokenizer.tokenize(testText);
         double[] outcomes = categorizer.categorize(tokens);
